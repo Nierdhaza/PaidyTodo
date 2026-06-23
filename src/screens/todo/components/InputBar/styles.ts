@@ -1,22 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
-import { colors } from '../../theme';
+import { colors } from '../../../../theme';
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#F3F4F6',
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    flex: 1,
-  },
-  header: {
-    fontSize: 28,
-    color: colors.primary,
-    fontWeight: '800',
-    marginBottom: 8,
-  },
-  list: {
-    paddingBottom: 140,
-  },
   inputWrap: {
     position: 'absolute',
     left: 16,
