@@ -4,9 +4,8 @@ import { colors } from '../../theme';
 export const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: colors.bg,
     paddingHorizontal: 24,
-    paddingBottom: 48,
+    paddingBottom: 12,
     justifyContent: 'flex-end',
   },
   content: {
