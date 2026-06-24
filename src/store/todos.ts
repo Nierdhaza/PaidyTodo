@@ -3,9 +3,8 @@ import { create } from 'zustand';
 export interface Todo {
   id: string;
   text: string;
-  completed: boolean;
   createdAt: number;
-};
+}
 
 type TodosState = {
   todos: Todo[];
@@ -13,7 +12,6 @@ type TodosState = {
   text: string;
   addTodo: (text: string) => void;
   removeTodo: (id: string) => void;
-  toggleTodo: (id: string) => void;
   updateTodo: (id: string, text: string) => void;
   setTodos: (todos: Todo[]) => void;
   setSelectedTodo: (id: string | null) => void;
@@ -32,38 +30,25 @@ export const useTodosStore = create<TodosState>((set) => ({
     set((state) => ({ todos: [todo, ...state.todos], text: '', selectedTodo: null }));
   },
 
-  removeTodo: (id) => set((state) => ({
-    todos: state.todos.filter(todo => todo.id !== id),
-    selectedTodo: state.selectedTodo?.id === id ? null : state.selectedTodo,
-    text: state.selectedTodo?.id === id ? '' : state.text,
-  })),
-
-  toggleTodo: (id: string) => {
+  removeTodo: (id) =>
     set((state) => ({
-      todos: state.todos.map((todo) => (
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )),
-    }));
-  },
+      todos: state.todos.filter((todo) => todo.id !== id),
+      selectedTodo: state.selectedTodo?.id === id ? null : state.selectedTodo,
+      text: state.selectedTodo?.id === id ? '' : state.text,
+    })),
 
-  updateTodo: (id, text) => set((state) => ({
-    todos: state.todos.map(todo =>
-      todo.id === id
-        ? { ...todo, text }
-        : todo
-    ),
-    selectedTodo: state.selectedTodo?.id === id
-      ? { ...state.selectedTodo, text }
-      : state.selectedTodo,
-  })),
+  updateTodo: (id, text) =>
+    set((state) => ({
+      todos: state.todos.map((todo) => (todo.id === id ? { ...todo, text } : todo)),
+      selectedTodo:
+        state.selectedTodo?.id === id ? { ...state.selectedTodo, text } : state.selectedTodo,
+    })),
 
   setTodos: (todos: Todo[]) => set({ todos }),
 
   setSelectedTodo: (id: string | null) =>
     set((state) => {
-      const selectedTodo = state.todos.find(todo => todo.id === id) ?? null;
+      const selectedTodo = state.todos.find((todo) => todo.id === id) ?? null;
       return {
         selectedTodo,
         text: selectedTodo ? selectedTodo.text : '',
