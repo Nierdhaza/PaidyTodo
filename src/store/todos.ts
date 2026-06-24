@@ -26,7 +26,7 @@ export const useTodosStore = create<TodosState>((set) => ({
 
   addTodo: (text: string) => {
     const id = String(Date.now());
-    const todo = { id, text, completed: false, createdAt: Date.now() };
+    const todo = { id, text, createdAt: Date.now() };
     set((state) => ({ todos: [todo, ...state.todos], text: '', selectedTodo: null }));
   },
 

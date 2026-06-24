@@ -1,29 +1,29 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../../theme';
+import { colors, paddings, borderRadius, fontSize, margins } from '../../../../theme';
 
 export const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.white,
-    paddingVertical: 16,
-    paddingHorizontal: 18,
-    borderRadius: 16,
-    marginVertical: 8,
+    paddingVertical: paddings.m,
+    paddingHorizontal: paddings.l,
+    borderRadius: borderRadius.m,
+    marginVertical: margins.xs,
   },
   dot: {
     width: 22,
     height: 22,
     borderRadius: '50%',
     backgroundColor: colors.primary,
-    marginRight: 16,
+    marginRight: margins.m,
   },
   itemText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: fontSize.m,
   },
   removeBtn: {
-    paddingHorizontal: 12,
+    paddingHorizontal: paddings.s,
   },
   removeText: {
     color: colors.grey1,

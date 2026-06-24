@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../theme';
+import { colors, paddings, margins, fontSize } from '../../theme';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    paddingHorizontal: paddings.m,
     flex: 1,
   },
   header: {
-    fontSize: 28,
+    fontSize: fontSize.xxl,
     color: colors.primary,
     fontWeight: '800',
-    marginBottom: 8,
+    marginBottom: margins.xs,
   },
 });
