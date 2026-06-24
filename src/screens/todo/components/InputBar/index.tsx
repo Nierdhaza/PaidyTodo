@@ -31,7 +31,6 @@ export default function InputBar() {
   };
 
   return (
-    // TODO: test on real device because KeyboardAvoidingView doesn't work on simulator
     <KeyboardAvoidingView keyboardVerticalOffset={80} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <View style={styles.inputWrap}>
         <TextInput
@@ -53,5 +52,4 @@ export default function InputBar() {
 
 /**
  * 4) try to write button component using Pressable
- * 5) extend theme file with paddings (s, xs, m, l, xl), margins (s, xs, m, l, xl), borderRadius (s, xs, m, l, xl)
  */
