@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     gap: 10,
   },
   text: {
@@ -21,7 +20,6 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
   subText: {
-    fontSize: 14,
     color: colors.grey1,
     textAlign: 'center',
   },
@@ -35,11 +33,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primaryButtonText: {
-    color: colors.primaryText,
+    color: colors.white,
     fontSize: 16,
     fontWeight: '700',
-  },
-  primaryButtonDisabled: {
-    opacity: 0.55,
   },
 });
