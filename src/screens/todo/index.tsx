@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
-import {
-  View,
-  Text,
-  FlatList
-} from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { styles } from './styles';
 import { useTodosStore, Todo } from '../../store/todos';
 import { InputBar, TodoItem } from './components';
 
 const keyExtractor = (item: Todo) => item.id;
-const renderItem = ({ item }: { item: Todo }) => <TodoItem item={item} />
+const renderItem = ({ item }: { item: Todo }) => <TodoItem item={item} />;
 
 export default function TodoScreen() {
   const todos = useTodosStore(({ todos }) => todos);
@@ -18,9 +14,9 @@ export default function TodoScreen() {
   useEffect(() => {
     if (!todos.length) {
       setTodos([
-        { id: '1', text: 'First Item', completed: false, createdAt: Date.now() - 3000 },
-        { id: '2', text: 'Second Item', completed: false, createdAt: Date.now() - 2000 },
-        { id: '3', text: 'Third Item', completed: false, createdAt: Date.now() - 1000 },
+        { id: '1', text: 'First Item', createdAt: Date.now() - 3000 },
+        { id: '2', text: 'Second Item', createdAt: Date.now() - 2000 },
+        { id: '3', text: 'Third Item', createdAt: Date.now() - 1000 },
       ]);
     }
   }, []);
@@ -33,7 +29,6 @@ export default function TodoScreen() {
         data={todos}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
-        contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
       />
 

@@ -1,22 +1,19 @@
 import { useEffect, useState } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
-import { onAuthenticate, openDeviceSecuritySettings } from '../../auth';
 import { LocalAuthenticationResult } from 'expo-local-authentication';
+
+import { onAuthenticate, openDeviceSecuritySettings } from '../../auth';
+
 import { styles } from './styles';
 
-type RenderStateOptions = {
+interface RenderStateOptions {
   message: string;
   buttonTitle: string;
   onPress: () => void;
   subtitle: string;
-};
+}
 
-function StateView({
-  message,
-  buttonTitle,
-  onPress,
-  subtitle,
-}: RenderStateOptions) {
+function StateView({ message, buttonTitle, onPress, subtitle }: RenderStateOptions) {
   return (
     <View style={styles.screen}>
       <View style={styles.content}>
@@ -24,11 +21,7 @@ function StateView({
         <Text style={styles.subText}>{subtitle}</Text>
       </View>
 
-      <TouchableOpacity
-        activeOpacity={0.85}
-        onPress={onPress}
-        style={[styles.primaryButton]}
-      >
+      <TouchableOpacity activeOpacity={0.85} onPress={onPress} style={styles.primaryButton}>
         <Text style={styles.primaryButtonText}>{buttonTitle}</Text>
       </TouchableOpacity>
     </View>
