@@ -31,7 +31,10 @@ export default function InputBar() {
   };
 
   return (
-    <KeyboardAvoidingView keyboardVerticalOffset={80} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView
+      keyboardVerticalOffset={80}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
       <View style={styles.inputWrap}>
         <TextInput
           style={styles.input}
@@ -49,7 +52,3 @@ export default function InputBar() {
     </KeyboardAvoidingView>
   );
 }
-
-/**
- * 4) try to write button component using Pressable
- */
