@@ -12,4 +12,16 @@ export const styles = StyleSheet.create({
     fontWeight: '800',
     marginBottom: margins.xs,
   },
+  listContent: {
+    flexGrow: 1,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noTodosText: {
+    fontSize: fontSize.m,
+    color: colors.grey1,
+  },
 });

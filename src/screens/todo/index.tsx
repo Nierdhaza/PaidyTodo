@@ -1,11 +1,17 @@
 import { useEffect } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { styles } from './styles';
+
 import { useTodosStore, Todo } from '../../store/todos';
 import { InputBar, TodoItem } from './components';
+import { styles } from './styles';
 
 const keyExtractor = (item: Todo) => item.id;
 const renderItem = ({ item }: { item: Todo }) => <TodoItem item={item} />;
+const ListEmptyComponent = () => (
+  <View style={styles.emptyContainer}>
+    <Text style={styles.noTodosText}>No Todos yet</Text>
+  </View>
+);
 
 export default function TodoScreen() {
   const todos = useTodosStore(({ todos }) => todos);
@@ -30,6 +36,8 @@ export default function TodoScreen() {
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={ListEmptyComponent}
+        contentContainerStyle={styles.listContent}
       />
 
       <InputBar />
